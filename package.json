@@ -1,6 +1,6 @@
 {
-  "name": "browser-tabs",
-  "version": "1.0.0",
+  "name": "react-browser-tabs",
+  "version": "1.0.2",
   "description": "Browser Like Tabs for your custom Browser.",
   "author": "rajaosama",
   "license": "MIT",

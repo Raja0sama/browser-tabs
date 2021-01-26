@@ -113,9 +113,6 @@ const App = () => {
   ]
   const tabs = useState(defaultTabs)
   const activeTab = useState(0)
-  useEffect(() => {
-    console.log({ activeTab })
-  }, [activeTab[0]])
 
   const addTab = () => {
     activeTab[1](tabs[0].length)
