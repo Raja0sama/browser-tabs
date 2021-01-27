@@ -5,7 +5,7 @@ export const BrowserTabs = ({
   tabs,
   activeTab,
   style = {},
-  theme,
+  theme = Light,
   onAddTabPress,
   injectProps
 }) => {
@@ -25,10 +25,12 @@ export const BrowserTabs = ({
   return (
     <div
       style={{
+        flex: 1,
         display: 'flex',
         flexDirection: 'column',
         borderRadius: 7,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        height: '100%'
       }}
     >
       <style>
@@ -54,6 +56,7 @@ export const BrowserTabs = ({
         <div
           style={{
             ...styles.content,
+            flex: 1,
             display: index != activeTabIndex && 'none'
           }}
         >
@@ -136,7 +139,8 @@ const themedStyle = (theme) => ({
     zIndex: '1',
     background: theme.contentColor,
     position: 'relative',
-    padding: 20
+    height: '100%'
+    // padding: 20
   },
   border: {
     margin: '8px 0',
@@ -229,18 +233,41 @@ function tabsLoop(
 
 function Cross({ active, theme }) {
   const styles = themedStyle(theme)
+  const [hover, sethover] = useState(false)
+
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'>
-      <path
-        stroke={
-          active ? theme.cancelActiveButtonColor : theme.cancelButtonColor
-        }
-        className={'cross'}
-        strokeLinecap='square'
-        strokeWidth='1.5'
-        d='M0 0 L8 8 M8 0 L0 8'
-      />
+    <svg viewBox='0 0 47.971 47.971' style={{ width: '100%', marginBottom: 2 }}>
+      <g>
+        <path
+          className={'cross'}
+          d='M28.228,23.986L47.092,5.122c1.172-1.171,1.172-3.071,0-4.242c-1.172-1.172-3.07-1.172-4.242,0L23.986,19.744L5.121,0.88
+		c-1.172-1.172-3.07-1.172-4.242,0c-1.172,1.171-1.172,3.071,0,4.242l18.865,18.864L0.879,42.85c-1.172,1.171-1.172,3.071,0,4.242
+		C1.465,47.677,2.233,47.97,3,47.97s1.535-0.293,2.121-0.879l18.865-18.864L42.85,47.091c0.586,0.586,1.354,0.879,2.121,0.879
+		s1.535-0.293,2.121-0.879c1.172-1.171,1.172-3.071,0-4.242L28.228,23.986z'
+        />
+      </g>
     </svg>
+    // // <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'>
+    // //   <path
+    // //     stroke={
+    // //       active ? theme.cancelActiveButtonColor : theme.cancelButtonColor
+    // //     }
+    // //     className={'cross'}
+    // //     strokeLinecap='square'
+    // //     strokeWidth='1.5'
+    // //     d='M0 0 L8 8 M8 0 L0 8'
+    // //   />
+    // // </svg>
+    // <svg
+    //   fill={active ? theme.cancelActiveButtonColor : theme.cancelButtonColor}
+    //   viewBox='0 0 329.26933 329'
+    //   xmlns='http://www.w3.org/2000/svg'
+    // >
+    //   <path
+    //     className={'cross'}
+    //     d='m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0'
+    //   />
+    // </svg>
   )
 }
 
@@ -325,14 +352,15 @@ function Tab({
           <img
             src={'https://www.google.com/s2/favicons?domain=' + tabs.url}
             style={{
-              padding: '0 8px'
+              padding: '0 8px',
+              paddingBottom: 7
             }}
           />
           <span
             style={{
               ...styles.title,
               color: 'rgb(113 113 113)',
-              lineHeight: '22px',
+              lineHeight: '15px',
               height: 19,
               overflow: 'hidden'
             }}
@@ -342,7 +370,7 @@ function Tab({
         </div>
         <style>
           {`.cross:hover {
-                      stroke : red
+                      fill : red
 
                     }`}
         </style>
@@ -368,4 +396,34 @@ function Tab({
       </div>
     </div>
   )
+}
+export const Dark = {
+  contentColor: '#252729',
+  activeTabColor: '#323639',
+  topBarColor: '#202124',
+  tabColor: 'transparent',
+  tabHoverColor: '#292b2e',
+  cancelButtonColor: '#71757a',
+  cancelButtonHoverColor: 'red',
+  cancelActiveButtonColor: '#858b8f',
+  cancelActiveButtonHoverColor: 'red',
+  labelColor: '#9ca1a7',
+  addButtonColor: 'transparent',
+  addButtonHoverColor: '#292b2e',
+  addButton: '#71757a'
+}
+export const Light = {
+  contentColor: 'white',
+  activeTabColor: 'white',
+  topBarColor: '#dee1e6',
+  tabColor: 'transparent',
+  tabHoverColor: '#f4f5f6',
+  cancelButtonColor: 'black',
+  cancelButtonHoverColor: 'red',
+  cancelActiveButtonColor: 'black',
+  cancelActiveButtonHoverColor: 'red',
+  labelColor: '#45474a',
+  addButtonColor: 'transparent',
+  addButtonHoverColor: '#ffffff26',
+  addButton: 'black'
 }

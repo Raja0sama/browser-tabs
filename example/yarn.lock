@@ -8431,6 +8431,11 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
+react-browser-tabs@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-browser-tabs/-/react-browser-tabs-1.0.2.tgz#0044109cad70d5011e6b399e05f50768fafe2245"
+  integrity sha512-XgRQe/5Dut/iCutwqlMQ6Xi7/1+EppcHSzwkn6nnOYrlL0zjdY2Sn06z2fVBcmB7X3yz/OWRqby4AtKeigBSyg==
+
 react-dev-utils@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"

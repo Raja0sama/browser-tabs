@@ -137,7 +137,9 @@ const App = () => {
         style={{
           padding: 20,
           height: '100%',
-          backgroundColor: isDark ? '#1c1c1c' : '#f1f3f4'
+          backgroundColor: isDark ? '#1c1c1c' : '#f1f3f4',
+          display: 'flex',
+          flexDirection: 'column'
         }}
       >
         <BrowserTabs
