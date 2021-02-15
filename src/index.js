@@ -39,18 +39,20 @@ export const BrowserTabs = ({
 }`}
       </style>
       <div className={'tabs'} style={{ ...styles.tabs, tabsStyle }}>
-        {tabsLoop(
-          currTabs,
-          activeTabIndex,
-          tabStyle,
-          activeTabsStyle,
-          tabBoxStyle,
-          activeTabBoxStyle,
-          setActiveTabIndex,
-          setNewTabs,
-          onAddTabPress,
-          theme
-        )}
+        {currTabs && Array.isArray(currTabs)
+          ? tabsLoop(
+              currTabs,
+              activeTabIndex,
+              tabStyle,
+              activeTabsStyle,
+              tabBoxStyle,
+              activeTabBoxStyle,
+              setActiveTabIndex,
+              setNewTabs,
+              onAddTabPress,
+              theme
+            )
+          : console.log('Some thing wrong with currtabs ', { currTabs })}
       </div>
       {currTabs.map((tabs, index) => (
         <div
